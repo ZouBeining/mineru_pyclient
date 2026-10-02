@@ -5,15 +5,15 @@ from __future__ import annotations
 import pytest
 
 from fakes import FakeSession
-from mineru.agent import AgentClient
-from mineru.config import (
+from mineru_pyclient.agent import AgentClient
+from mineru_pyclient.config import (
     DEFAULT_AGENT_BASE_URL,
     DEFAULT_STANDARD_BASE_URL,
     TOKEN_ENV_VAR,
     get_version,
     resolve_token,
 )
-from mineru.exceptions import MissingTokenError
+from mineru_pyclient.exceptions import MissingTokenError
 
 
 def test_explicit_token_beats_environment(monkeypatch: pytest.MonkeyPatch) -> None:

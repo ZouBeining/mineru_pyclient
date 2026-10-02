@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from mineru.models import (
+from mineru_pyclient.models import (
     AgentResult,
     BatchResult,
     ExtractProgress,

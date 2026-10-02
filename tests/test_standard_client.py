@@ -10,9 +10,9 @@ from typing import Any
 import pytest
 
 from fakes import FakeResponse, FakeSession, envelope
-from mineru.exceptions import MinerUError, MissingTokenError
-from mineru.models import TaskResult, TaskState
-from mineru.standard import MinerUClient
+from mineru_pyclient.exceptions import MinerUError, MissingTokenError
+from mineru_pyclient.models import TaskResult, TaskState
+from mineru_pyclient.standard import MinerUClient
 
 
 def _make_client(responses: list[Any]) -> tuple[MinerUClient, FakeSession]:

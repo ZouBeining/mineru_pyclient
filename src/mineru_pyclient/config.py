@@ -35,7 +35,7 @@ def get_version() -> str:
     imported straight from a source checkout it falls back to a placeholder.
     """
     try:
-        return version("mineru")
+        return version("mineru_pyclient")
     except PackageNotFoundError:  # pragma: no cover - only when not installed
         return _FALLBACK_VERSION
 

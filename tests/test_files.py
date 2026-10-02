@@ -8,7 +8,7 @@ from pathlib import Path
 import pytest
 
 from fakes import FakeResponse, FakeSession
-from mineru.files import download_to, extract_zip
+from mineru_pyclient.files import download_to, extract_zip
 
 
 def _write_zip(path: Path, members: dict[str, str]) -> None:

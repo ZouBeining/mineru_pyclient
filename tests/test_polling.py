@@ -7,9 +7,9 @@ from typing import Any
 
 import pytest
 
-from mineru.exceptions import PollTimeoutError, TaskFailedError
-from mineru.models import AgentResult, BatchResult, TaskResult, TaskState
-from mineru.polling import poll
+from mineru_pyclient.exceptions import PollTimeoutError, TaskFailedError
+from mineru_pyclient.models import AgentResult, BatchResult, TaskResult, TaskState
+from mineru_pyclient.polling import poll
 
 
 def _run(

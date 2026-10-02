@@ -7,8 +7,8 @@ from typing import Any
 
 import pytest
 
-import mineru.cli as cli
-from mineru.models import AgentResult, BatchResult, TaskResult, TaskState
+import mineru_pyclient.cli as cli
+from mineru_pyclient.models import AgentResult, BatchResult, TaskResult, TaskState
 
 
 class FakeStandardClient:
@@ -57,7 +57,7 @@ class FakeStandardClient:
 
 
 class FakeAgentClient:
-    """Minimal stand-in for :class:`~mineru.agent.AgentClient`."""
+    """Minimal stand-in for :class:`~mineru_pyclient.agent.AgentClient`."""
 
     def __init__(self, *, base_url: str | None = None, **_: Any) -> None:
         self.base_url = base_url

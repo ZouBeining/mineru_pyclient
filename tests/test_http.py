@@ -8,7 +8,7 @@ import pytest
 import requests
 
 from fakes import FakeResponse, FakeSession, envelope
-from mineru.exceptions import (
+from mineru_pyclient.exceptions import (
     AuthenticationError,
     FileTooLargeError,
     FileTypeError,
@@ -21,7 +21,7 @@ from mineru.exceptions import (
     TokenExpiredError,
     raise_for_code,
 )
-from mineru.http import Transport
+from mineru_pyclient.http import Transport
 
 
 def _transport(responses: list[Any]) -> tuple[Transport, FakeSession]:

@@ -1,4 +1,4 @@
-"""Support ``python -m mineru``."""
+"""Support ``python -m mineru_pyclient``."""
 
 from __future__ import annotations
 

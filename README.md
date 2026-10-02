@@ -1,4 +1,4 @@
-# mineru
+# MinerU_pyclient
 
 Python client and CLI for the [MinerU](https://mineru.net) document parsing
 API. It wraps both API families exposed by MinerU:
@@ -26,7 +26,7 @@ convenience helpers do the whole round trip, including downloading results.
 ### Precise API
 
 ```python
-from mineru import MinerUClient
+from mineru_pyclient import MinerUClient
 
 # token falls back to $MINERU_TOKEN when omitted
 client = MinerUClient("YOUR_TOKEN")
@@ -51,7 +51,7 @@ result = client.wait(task_id, on_progress=lambda r: print(r.state))
 ### Agent API
 
 ```python
-from mineru import AgentClient
+from mineru_pyclient import AgentClient
 
 client = AgentClient()  # no token needed
 
@@ -61,8 +61,8 @@ saved = client.parse_file("report.docx", "out")            # -> out/report.md
 
 ## CLI usage
 
-The console script is installed as `mineru`, and `python -m mineru` works too.
-Options may be written before or after the command.
+The console script is installed as `mineru`, and `python -m mineru_pyclient`
+works too. Options may be written before or after the command.
 
 ```bash
 # precise API (needs a token)

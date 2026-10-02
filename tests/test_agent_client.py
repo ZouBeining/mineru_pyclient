@@ -6,8 +6,8 @@ from pathlib import Path
 from typing import Any
 
 from fakes import FakeResponse, FakeSession, envelope
-from mineru.agent import AgentClient
-from mineru.models import TaskState
+from mineru_pyclient.agent import AgentClient
+from mineru_pyclient.models import TaskState
 
 
 def _make_client(responses: list[Any]) -> tuple[AgentClient, FakeSession]:

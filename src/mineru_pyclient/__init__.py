@@ -2,10 +2,10 @@
 
 Two API families are wrapped:
 
-* :class:`~mineru.standard.MinerUClient` — the 精准解析 (precise) API,
+* :class:`~mineru_pyclient.standard.MinerUClient` — the 精准解析 (precise) API,
   ``/api/v4``; requires a token and supports single files, batches and extra
   export formats.
-* :class:`~mineru.agent.AgentClient` — the Agent 轻量解析 (lightweight) API,
+* :class:`~mineru_pyclient.agent.AgentClient` — the Agent 轻量解析 (lightweight) API,
   ``/api/v1/agent``; needs no token and returns Markdown only.
 
 The same functionality is exposed on the command line via :func:`main`.
