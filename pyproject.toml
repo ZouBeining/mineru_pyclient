@@ -1,13 +1,15 @@
 [project]
 name = "mineru"
 version = "0.1.0"
-description = "Add your description here"
+description = "Python client and CLI for the MinerU document parsing API"
 readme = "README.md"
 authors = [
     { name = "ZouBeining", email = "bnzou@outlook.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "requests>=2.34.2",
+]
 
 [project.scripts]
 mineru = "mineru:main"
@@ -15,3 +17,13 @@ mineru = "mineru:main"
 [build-system]
 requires = ["uv_build>=0.12.19,<0.13.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["tests"]
+addopts = "-ra"
