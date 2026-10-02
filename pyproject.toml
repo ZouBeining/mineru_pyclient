@@ -1,6 +1,6 @@
 [project]
 name = "mineru"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python client and CLI for the MinerU document parsing API"
 readme = "README.md"
 authors = [
