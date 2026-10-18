@@ -16,7 +16,20 @@ API. It wraps both API families exposed by MinerU:
 
 ```bash
 uv sync
+cp .env.example .env   # then set MINERU_TOKEN inside it
 ```
+
+## Configuration
+
+The precise API needs a token, resolved in this order:
+
+1. the `token` argument of `MinerUClient`,
+2. the `MINERU_TOKEN` environment variable,
+3. `MINERU_TOKEN` in the nearest `.env` file, searched from the current
+   directory upwards.
+
+The agent API needs no token. Real `.env` files are git-ignored; commit only
+`.env.example`.
 
 ## Library usage
 
@@ -28,7 +41,7 @@ convenience helpers do the whole round trip, including downloading results.
 ```python
 from mineru_pyclient import MinerUClient
 
-# token falls back to $MINERU_TOKEN when omitted
+# token falls back to $MINERU_TOKEN or .env when omitted
 client = MinerUClient("YOUR_TOKEN")
 
 # one URL: submit, wait, download and extract the archive into ./out
@@ -65,7 +78,7 @@ The console script is installed as `mineru`, and `python -m mineru_pyclient`
 works too. Options may be written before or after the command.
 
 ```bash
-# precise API (needs a token)
+# precise API (needs a token: taken from .env, or exported as shown here)
 export MINERU_TOKEN=...
 mineru --out-dir out url https://example.com/file.pdf --model-version vlm
 mineru file a.pdf b.docx --page-ranges 1-10 --extra-formats docx --extra-formats html
@@ -99,5 +112,4 @@ touches the network and needs no token.
 
 - Standard API files must be <= 200 MB / <= 200 pages; the agent API is limited
   to 10 MB / 20 pages and one file per request.
-- `MINERU_TOKEN` is read when no token is passed explicitly.
 - Result archives are extracted with a zip-slip guard.
