@@ -162,9 +162,8 @@ def test_json_output(standard: type[FakeStandardClient], capsys: pytest.CaptureF
 
 
 def test_missing_token_is_reported(
-    monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+    no_token: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
 ) -> None:
-    monkeypatch.delenv("MINERU_TOKEN", raising=False)
     assert cli.main(["status", "t"]) == 1
     assert "error:" in capsys.readouterr().err
 

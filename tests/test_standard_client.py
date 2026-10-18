@@ -35,6 +35,17 @@ def test_client_reads_the_token_from_the_environment(token_env: str) -> None:
     assert client.token == "env-token"
 
 
+def test_client_reads_the_token_from_dotenv(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.delenv("MINERU_TOKEN", raising=False)
+    env_file = tmp_path / ".env"
+    env_file.write_text("MINERU_TOKEN=file-token\n", encoding="utf-8")
+    monkeypatch.setattr("mineru_pyclient.config._find_env_file", lambda: str(env_file))
+    client = MinerUClient(session=FakeSession())
+    assert client.token == "file-token"
+
+
 def test_client_sends_the_bearer_header() -> None:
     client, _ = _make_client([])
     assert client._transport.headers["Authorization"] == "Bearer token-123"

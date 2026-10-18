@@ -8,6 +8,7 @@ from typing import Any
 import pytest
 
 from fakes import FakeResponse, FakeSession, envelope
+from mineru_pyclient import config
 
 
 @pytest.fixture
@@ -18,8 +19,9 @@ def make_envelope() -> Callable[..., dict[str, Any]]:
 
 @pytest.fixture
 def no_token(monkeypatch: pytest.MonkeyPatch) -> pytest.MonkeyPatch:
-    """Ensure no token leaks in from the environment."""
+    """Ensure no token leaks in from the environment or a local ``.env``."""
     monkeypatch.delenv("MINERU_TOKEN", raising=False)
+    monkeypatch.setattr(config, "_find_env_file", lambda: "")
     return monkeypatch
 
 
