@@ -8,3 +8,6 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Local secrets: real tokens live in .env (see .env.example)
+.env
